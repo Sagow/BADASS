@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  frr:
+    image: sagow/badass_router
+    build:
+      context: FRR
+    container_name: router_mdelwaul
+    privileged: true
+    networks:
+      - network_bridge
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    ports:
+      - "26010:2601"
+      - "179:179"
+      - "2604:2604"
+    volumes:
+      - ./FRR:/etc/frr
+    # command: ["/usr/lib/frr/zebra", "-d"]
+
+  alpine:
+    image: sagow/badass_user
+    build:
+      context: Alpine
+    container_name : user_mdelwaul
+    networks:
+      - network_bridge
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+networks:
+  network_bridge:
+    driver: bridge
+    
