@@ -77,7 +77,6 @@ BusyBox is an alternative to GNU Coreutils. It is open-source and provides a str
 
 ## Videos
 
-- Premiers pas avec GNS3: https://www.youtube.com/playlist?list=PLLIV0VIvYuAMqJZm-Ulr1qiMGzH6f0OVl
 - Part 1: https://www.youtube.com/watch?v=D4nk5VSUelg
 - Part 2: https://www.youtube.com/watch?v=u1ka-S6F9UI
 - Part 3: https://www.youtube.com/watch?v=Ek7kFDwUJBM
