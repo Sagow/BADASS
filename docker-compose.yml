@@ -14,13 +14,14 @@ services:
     restart: unless-stopped
     stdin_open: true
     tty: true
+    #entrypoint: ["/bin/bash", "-c", "/usr/lib/frr/frrinit.sh start && tail -f /dev/null"]  # Overrides the entrypoint and allows volume mounting
     ports:
       - "26010:2601"
       - "179:179"
       - "2604:2604"
     volumes:
       - ./FRR:/etc/frr
-    entrypoint: ["/bin/bash", "-c", "cp /etc/frr/daemons.custom /etc/frr/daemons && /usr/lib/frr/frrinit.sh start"]
+      - ./Test:/etc
 
 
   alpine:
