@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   frr:
-    image: sagow/badass_router
+    image: router_mdelwaul
     build:
       context: FRR
     container_name: router_mdelwaul
@@ -20,13 +20,14 @@ services:
       - "2604:2604"
     volumes:
       - ./FRR:/etc/frr
-    # command: ["/usr/lib/frr/zebra", "-d"]
+    entrypoint: ["/bin/bash", "-c", "cp /etc/frr/daemons.custom /etc/frr/daemons && /usr/lib/frr/frrinit.sh start"]
+
 
   alpine:
-    image: sagow/badass_user
+    image: host_mdelwaul
     build:
       context: Alpine
-    container_name : user_mdelwaul
+    container_name : host_mdelwaul
     networks:
       - network_bridge
     restart: unless-stopped

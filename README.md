@@ -80,3 +80,7 @@ BusyBox is an alternative to GNU Coreutils. It is open-source and provides a str
 - Part 1: https://www.youtube.com/watch?v=D4nk5VSUelg
 - Part 2: https://www.youtube.com/watch?v=u1ka-S6F9UI
 - Part 3: https://www.youtube.com/watch?v=Ek7kFDwUJBM
+
+## Command to temporary add more flexibility to kernel memory handling
+
+sudo sysctl -w vm.overcommit_memory=1
